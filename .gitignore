@@ -24,6 +24,15 @@ video/
 *_Archive/
 Project_Deliverables Brief/
 
+# Root loose redundant documents (saved in subfolders)
+ADA_Standards_of_Care_*
+COSC726_Defense_QA_Guide_*
+COSC726_Project_Team_Health_Report*
+project presention after agents*
+Project_Guide_Arabic.docx
+Project_Guide_English.docx
+READ.md
+
 # OS specific files
 .DS_Store
 Thumbs.db
