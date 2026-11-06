@@ -1,0 +1,234 @@
+Created At: 2026-10-19T09:01:46+03:00
+Completed At: 2026-10-19T09:01:46+03:00
+File Path: `file:///d:/111/diabetes_predict/Project_Deliverables%20Brief/extracted_brief_text.txt`
+Total Lines: 226
+Total Bytes: 13546
+Showing lines 1 to 226
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: Total pages: 6
+2: 
+3: ============================== PAGE 1 ==============================
+4: COSC726 Project — Deliverables & Submission Brief 
+5: COSC726 · PROJECT 30% OF THE MODULE 
+6: Project — Deliverables & Submission Brief 
+7: What to submit, how it is marked, and where to submit it 
+8: Agentic Artificial Intelligence ·  
+9:  
+10: AT A GLANCE 
+11: What. Design, build, evaluate and responsibly deploy an agentic system addressing a problem in one 
+12: of the four module domains: education, finance, smart systems, or health.  
+13: Weight. 30% of the module. The other components is the final exam (70%).  
+14: Three deliverables, all required: a public GitHub repository, a 10-minute video demo on YouTube, 
+15: and a report as a single PDF. 
+16:  
+17: 1  What you submit 
+18: Three deliverables. They are marked together against one rubric (§5), but each carries evidence the 
+19: others cannot: the repository shows that it works, the video shows that it works on your machine, 
+20: end to end, and the report shows that you understand why it works and where it does not. 
+21: Deliverable Format What it must be 
+22: 1. Repository GitHub URL A runnable repository with a README that takes a marker from a 
+23: clean machine to a working run. Public, or private with the module 
+24: team added as collaborators. 
+25: 2. Video demo YouTube URL (unlisted) A 10-minute recorded demonstration of the running system, its 
+26: evaluation, and its guardrails.  
+27: 3. Report One PDF file ~3000–4000 words plus a responsible-design appendix. The title 
+28: page carries both URLs above. 
+29:  
+30: 2  Deliverable 1 — the GitHub repository 
+31: 2.1  What the repository must contain 
+32:  The full source of your agent, including tool definitions, prompts, and the controller loop. 
+33:  README.md — the run instructions, specified in §2.2. This is the single most important file in the 
+34: repository. 
+35:  requirements.txt with pinned versions, or an equivalent lock file. 
+36:  .env.example listing every environment variable your system reads, with dummy values. The real 
+37: .env must be in .gitignore and must never be committed. 
+38:  Your evaluation harness and its task set, so the numbers in your report can be reproduced. 
+39:  Your tests. These must run with no API key and no network access. 
+40:  A LICENCE file if you intend the work to be reusable, and an acknowledgement of any third-party 
+41: code or data. 
+42: 
+43: ============================== PAGE 2 ==============================
+44: COSC726 Project — Deliverables & Submission Brief 
+45: 2.2  What your README must contain 
+46: A marker will clone your repository onto a clean machine and follow your README literally. Write 
+47: it for that reader — not for someone who already has your project set up. Include, in this order: 
+48: 1. What it does — one paragraph. The problem, the domain, and what the agent actually does. 
+49: 2. Prerequisites — Python version, and the model runtime (Ollama, or the hosted provider and 
+50: which snapshot). 
+51: 3. Install — exact, copy-pasteable commands, from git clone to installed dependencies. 
+52: 4. Configure — how to copy .env.example to .env, and which two variables switch the model 
+53: provider. 
+54: 5. Run — the single command that starts the system, and what the user should see when it works. 
+55: 6. Test — the single command that runs the test suite, and the expected result. State plainly that it 
+56: needs no API key and no network. 
+57: 7. A worked example — one concrete input and the output it produces, so the marker can tell a 
+58: correct run from a broken one. 
+59: 8. Reproduce the evaluation — the command that runs your evaluation set, and the numbers it 
+60: should print. These must match the numbers in your report. 
+61: 9. The approval gate — where the consequential action lives, how to trigger it, and what the 
+62: human reviewer sees. 
+63: 10. Repository map — one line per directory, saying what lives there. 
+64: 11. Limitations — what the system does not do, and what would break it. 
+65: THE README IS MARKED BY BEING FOLLOWED 
+66: Every year, Students lose implementation marks not because the system is poor but because it could 
+67: not be started. Before you submit, have someone clone the repository into a fresh directory, follow only 
+68: the README, and report where they got stuck. Fix that, then submit.  
+69: If some step genuinely cannot be automated — a large model download, say — say so explicitly and give 
+70: the expected time and disk cost. 
+71:  
+72: 2.3 Access 
+73: Public is simplest and is recommended. If you keep the repository private, add the module team as 
+74: collaborators before the deadline and say so in the report — an invitation that is still pending 
+75: when marking begins counts as a repository the marker cannot open. 
+76: 3  Deliverable 2 — the 10-minute video demo 
+77: 3.1  Hosting and the link 
+78:  Upload to YouTube and set the visibility to Unlisted. Unlisted means anyone with the link can 
+79: watch, but it does not appear in search. 
+80: 
+81: ============================== PAGE 3 ==============================
+82: COSC726 Project — Deliverables & Submission Brief 
+83:  Do not set it to Private — private videos are visible only to accounts you name individually, and 
+84: the marker will not be able to open it. 
+85:  Test the link in a signed-out or private browser window. This is the single most common cause 
+86: of an unwatchable submission. 
+87:  Keep the video available until your results are formally ratified. Do not delete or re-upload it 
+88: after submission — a changed URL is a missing deliverable. 
+89: 3.2  What to cover 
+90: Ten minutes is a hard cap: marking stops at 10:00, and anything after that point is not seen. 
+91: Rehearse against the clock. The breakdown below is a guide, not a rule — but every row in it carries 
+92: marks somewhere in the rubric. 
+93: Time What to show 
+94: 0:00–1:00 The problem, the domain, and why an agent — what an agentic approach buys you over a non-
+95: agentic baseline. This is the criterion teams most often lose. 
+96: 1:00–2:00 Architecture: the agents, the tools and their permission tiers, and which patterns you used 
+97: (planning, memory, multi-agent, oversight). 
+98: 2:00–5:30 The system running, end to end, on a real task. Show at least one case that goes wrong and how the 
+99: system handles it — a clean happy path alone is weak evidence. 
+100: 5:30–7:30 Evaluation: your metrics, your task set, and your actual results, including cost and latency. Name a 
+101: failure mode you did not fix. 
+102: 7:30–9:00 Responsible design: the risk you designed against, your guardrails, and the approval gate firing 
+103: on a consequential action. 
+104: 9:00–
+105: 10:00 
+106: Limitations and what you would do next with more time. 
+107:  
+108: 3.3  Recording quality 
+109:  Record at 1080p and enlarge your terminal and editor fonts before you start. Text that is 
+110: unreadable at the marker's screen size cannot be credited. 
+111:  Speak over the demo — narrate what you are doing and why. A silent screen recording scores 
+112: poorly on communication. 
+113:  Leave YouTube's automatic captions on, and correct them if they mangle technical terms. 
+114:  Use no copyrighted music. A video muted or taken down by a copyright claim is a missing 
+115: deliverable. 
+116:  Blur or avoid showing real API keys, personal data, or anything else you would not publish. 
+117: TEN MINUTES MEANS TEN MINUTES 
+118: A 14-minute video is marked on its first ten minutes. If your limitations section sits at 12:30, it is not 
+119: marked. Cut the setup and the code tour — the repository already shows the code. Spend the time on 
+120: the system running, the evaluation, and the guardrails. 
+121:  
+122: 4  Deliverable 3 — the report (PDF) 
+123: 4.1  Structure and length 
+124: ~3000–4000 words, excluding references and appendices. Suggested structure: 
+125: 
+126: ============================== PAGE 4 ==============================
+127: COSC726 Project — Deliverables & Submission Brief 
+128: 1. Problem and domain fit — the problem, its constraints, and the justification for an agentic 
+129: approach over a simpler baseline. 
+130: 2. System design — architecture, the tool inventory with permission tiers, and the design 
+131: patterns used, with the reasoning behind each choice. 
+132: 3. Implementation — what you built, the framework you chose and why, and the difficulties that 
+133: shaped the result. 
+134: 4. Evaluation and reliability — success metrics, your task set, results, and an honest account of 
+135: failure modes, cost, and latency. 
+136: 5. Responsible design — the risk assessment, guardrails, human-oversight gates, and privacy or 
+137: governance considerations, shown as part of the system rather than bolted on. 
+138: 6. Limitations and next steps — what you would not yet trust it with, and why. 
+139: 7. References — cited consistently in any standard style. 
+140: Appendix A — responsible-design appendix (required): the risk register, the guardrails that 
+141: address each risk, and where human oversight sits. Appendix B — AI-use declaration 
+142: (required): see §9. 
+143: 4.2  The title page 
+144: The title page must carry, at minimum: the project title; the team identifier; name and student 
+145: number; the repository URL; the video URL; and the word count. Putting both links on the title 
+146: page means the report remains self-contained if it is ever separated from the submission entry. 
+147: 4.3  File format and naming 
+148:  One PDF. Not a Word file, not a folder, not a zip. Check that it opens and that the links on the 
+149: title page are clickable. 
+150:  Name it COSC726_Project_<TeamID>_Report.pdf. 
+151:  Figures and tables must be legible in the PDF at 100% zoom. A screenshot of a terminal that is 
+152: unreadable when printed carries no evidence. 
+153: 5  How it is marked 
+154: One rubric covers all three deliverables. Note the balance: evaluation and responsible design 
+155: together (40%) outweigh technical implementation (30%). A system that works but is 
+156: unmeasured and ungoverned does not pass this rubric well. 
+157: Criterion % What strong work looks like 
+158: Problem framing & 
+159: domain fit 
+160: 15 Clear, well-scoped problem; the agentic approach is justified over a non-agentic 
+161: baseline; realistic domain constraints acknowledged. 
+162: Technical 
+163: implementation 
+164: 30 Working agent(s) in a named framework; sound architecture and tool design; 
+165: appropriate use of planning, memory or multi-agent patterns; clean, runnable 
+166: repository. 
+167: Evaluation & 
+168: reliability 
+169: 20 Defined success metrics; evidence of testing; honest reporting of failure modes, cost 
+170: and latency. 
+171: Responsible 
+172: design 
+173: 20 Risk assessment, guardrails, human-oversight gates, and privacy/governance 
+174: considerations integrated into the system, not bolted on. 
+175: 
+176: ============================== PAGE 5 ==============================
+177: COSC726 Project — Deliverables & Submission Brief 
+178: Criterion % What strong work looks like 
+179: Communication 15 Clear report and a convincing demo; reflective about limitations and next steps. 
+180:  
+181: Each criterion draws on more than one deliverable, so a weak deliverable costs you across the rubric 
+182: rather than in one place: 
+183: Deliverable Criteria it mainly evidences 
+184: Repository Technical implementation; evaluation & reliability (the harness); responsible design (the 
+185: guardrails and the approval gate in code). 
+186: Video demo Communication; technical implementation (that it genuinely runs); responsible design 
+187: (the gate firing). 
+188: Report Problem framing & domain fit; evaluation & reliability (the analysis); responsible design 
+189: (the risk register); communication. 
+190:  
+191: 6 Academic integrity and AI use 
+192: You may use AI coding assistants on this project — you are studying agentic AI, and refusing the 
+193: tools would be artificial. What is assessed is your understanding and your judgement, and both must 
+194: be yours. 
+195:  Include an AI-use declaration as Appendix B: which tools you used, for what, and how you 
+196: verified the output. A short, specific declaration is expected and costs no marks. 
+197:  You are responsible for every line you submit. Being unable to explain your own code is an 
+198: integrity matter, not a presentation one. 
+199:  Cite code, data, prompts and designs taken from elsewhere, including from module materials. 
+200:  The commit history and the video together are the primary evidence of authorship. Keep both 
+201: honest. 
+202: 7 Final checklist 
+203: Work through this the day before you submit, not on the day. 
+204:  Someone outside the team cloned the repository, followed only the README, and got a working 
+205: run. 
+206:  pytest (or your equivalent) passes on a machine with no API key and no network. 
+207:  git log shows contributions from every team member; .env is not in the repository, and never 
+208: was. 
+209:  The evaluation command reproduces the numbers quoted in the report. 
+210:  The video is Unlisted, opens in a signed-out browser, and runs to 10:00 or under. 
+211:  The video shows the system running, a failure being handled, and the approval gate firing. 
+212:  The report is a single PDF, within the word count, with both URLs on the title page and both 
+213: appendices present. 
+214:  If the repository is private, the module team has been added as collaborators and the invitation 
+215: has been accepted. 
+216:  All three items — repository URL, video URL, report PDF — are in the one submission entry. 
+217: 
+218: ============================== PAGE 6 ==============================
+219: COSC726 Project — Deliverables & Submission Brief 
+220: IF SOMETHING GOES WRONG 
+221: If a link breaks, an upload fails, or a team member withdraws close to the deadline, contact the module 
+222: leader before the deadline rather than after. A problem raised early is usually solvable; the same 
+223: problem raised afterwards usually is not. 
+224:  
+225: 
+226: 
+The above content shows the entire, complete file contents of the requested file.
