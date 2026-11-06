@@ -23,6 +23,7 @@ video/
 *.mp4
 *_Archive/
 Project_Deliverables Brief/
+Documentation/
 
 # Root loose redundant documents (saved in subfolders)
 ADA_Standards_of_Care_*
