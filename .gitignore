@@ -22,6 +22,7 @@ dist/
 video/
 *.mp4
 *_Archive/
+Project_Deliverables Brief/
 
 # OS specific files
 .DS_Store
