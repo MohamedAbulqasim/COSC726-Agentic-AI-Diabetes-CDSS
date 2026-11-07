@@ -4,7 +4,7 @@
 **Course:** COSC726 Agentic Artificial Intelligence (2026) — 30% Coursework Project  
 **Domain:** Health (Clinical Decision Support)  
 **Author:** Mohamed Abuelgasim | **Supervisor:** Dr. Fakhreldeen Saeed  
-**Deliverables Repository:** [GitHub Submission Repository](https://github.com/Mohamed-Abuelgasim/COSC726-Agentic-AI-Diabetes-CDSS)  
+**Deliverables Repository:** [GitHub Submission Repository](https://github.com/MohamedAbulqasim/COSC726-Agentic-AI-Diabetes-CDSS)  
 **Video Demo:** [10-Minute YouTube Demonstration (Unlisted)](https://youtu.be/COSC726_Diabetes_Agentic_AI_Demo)  
 
 ---
@@ -18,39 +18,122 @@ This project addresses the critical clinical problem of high error rates, probab
 
 ---
 
-### 2. Prerequisites
-- **Operating System:** Windows 10/11, macOS (12+), or Ubuntu Linux (20.04+).
+### 2. Prerequisites & Supported Environments
+- **Operating Systems:** Windows 10/11 (64-bit), macOS (12+), or Ubuntu Linux (20.04+).
 - **Python Runtime:** Python `3.10`, `3.11`, or `3.12` (64-bit).
-- **Model Runtime:**
+- **Model Runtimes:**
   - **Deterministic Clinical Expert Engine (Default):** Runs 100% locally with zero latency, zero financial cost, **NO API key**, and **NO internet access required**. Fully compliant with ADA 2024/2026 standards.
   - **Optional Local LLM Runtime:** [Ollama](https://ollama.ai/) with `llama3:8b` or `mistral:7b` (local server at `http://localhost:11434`).
   - **Optional Hosted LLM Providers:** Google Gemini (`gemini-2.5-flash`), OpenAI (`gpt-4o-mini`), DeepSeek (`deepseek-chat`), or Cohere (`command-r-plus`).
 
 ---
 
-### 3. Install
-Clone the repository and install all pinned dependencies using standard copy-pasteable commands:
+### 3. Installation & Execution Modes (طرق التشغيل والتثبيت)
+
+The system supports multiple flexible execution paths tailored for evaluators, examiners, and developers:
+
+```
+┌───────────────────────────────────────────────────────────────────────────────────┐
+│                        CHOOSE YOUR PREFERRED EXECUTION MODE                       │
+├───────────────────────────────────────────────────┬───────────────────────────────┤
+│ [MODE 1] 1-Click Launch (Windows)                 │ Double-click run_new_project  │
+│ [MODE 2] Zero-Install Cloud Web App               │ Streamlit Community Cloud     │
+│ [MODE 3] Standard Developer CLI (Cross-Platform)  │ PowerShell / Terminal         │
+│ [MODE 4] Legacy Baseline Model (Prerequisite ML)  │ Double-click run_old_project  │
+└───────────────────────────────────────────────────┴───────────────────────────────┘
+```
+
+---
+
+#### Mode 1: One-Click Smart Launch on Windows (التشغيل التلقائي بنقرة واحدة)
+*Ideal for quick demonstration on Windows without typing any terminal commands.*
+
+1. Clone or download the repository ZIP file and extract it.
+2. In the root directory, simply **double-click** the file:
+   ```cmd
+   run_new_project.bat
+   ```
+3. **What happens automatically:**
+   - Detects your Python environment (`python` or Windows Python launcher `py`).
+   - Automatically checks if required packages are installed (`streamlit`, `scikit-learn`, `pandas`, `pydantic`, `python-docx`).
+   - If missing, it installs them automatically from `requirements.txt` with progress output.
+   - Automatically launches the clinical platform and opens your default browser at `http://localhost:8501`.
+
+---
+
+#### Mode 2: Zero-Install Cloud Web App (تشغيل سحابي دون الحاجة لبايثون)
+*Ideal for examiners, supervisors, or testing on computers that do NOT have Python installed.*
+
+The platform is designed to deploy seamlessly to **Streamlit Community Cloud** (100% free) directly from this GitHub repository:
+
+1. Open **[share.streamlit.io](https://share.streamlit.io)** and sign in with GitHub.
+2. Click **"New app"** and enter the following settings:
+   - **Repository:** `MohamedAbulqasim/COSC726-Agentic-AI-Diabetes-CDSS`
+   - **Branch:** `main`
+   - **Main file path:** `app.py`
+3. Click **Deploy!**
+4. Within 60 seconds, the interactive clinical workstation is live with a permanent public HTTPS URL (e.g., `https://cosc726-diabetes-cdss.streamlit.app`) accessible from any browser, Mac, iPad, or mobile device with zero local installation.
+
+---
+
+#### Mode 3: Standard Developer CLI Installation (التشغيل عبر سطر الأوامر للمطورين)
+*Cross-platform support for Windows PowerShell, macOS, and Linux.*
 
 ```bash
-# 1. Clone repository
-git clone https://github.com/Mohamed-Abuelgasim/COSC726-Agentic-AI-Diabetes-CDSS.git
+# 1. Clone the repository
+git clone https://github.com/MohamedAbulqasim/COSC726-Agentic-AI-Diabetes-CDSS.git
 cd COSC726-Agentic-AI-Diabetes-CDSS
 
-# 2. Create and activate a clean virtual environment
+# 2. (Recommended) Create and activate a clean virtual environment
 # Windows (PowerShell):
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 # Linux / macOS:
 # python3 -m venv venv && source venv/bin/activate
 
-# 3. Install pinned dependencies
+# 3. Install dependencies
 pip install --upgrade pip
 pip install -r requirements.txt
+
+# 4. Launch the Streamlit Clinical Web Platform
+python -m streamlit run app.py
+# (Or alternatively via the CLI orchestrator):
+# python run_system.py --ui
 ```
 
 ---
 
-### 4. Configure
+#### Mode 4: Running on Computers Without Python (الأجهزة التي لا تحتوي على بايثون)
+If you need to evaluate or run the project on a machine where Python has never been installed:
+
+- **Method A (Easiest - 100% Web):** Use the **Streamlit Community Cloud** deployment link (Mode 2) directly in any web browser.
+- **Method B (Automated Windows 1-Click Install via Winget):**  
+  Windows 10/11 includes the official Windows Package Manager (`winget`). Open PowerShell as a regular user and run:
+  ```powershell
+  winget install -e --id Python.Python.3.12 --scope user
+  ```
+  Then double-click `run_new_project.bat`.
+- **Method C (Standard Python Installer):**  
+  Download Python 3.12 from [python.org/downloads](https://www.python.org/downloads/) and ensure you **CHECK** the box:  
+  `☑ Add python.exe to PATH` during installation.
+
+---
+
+#### Mode 5: Evaluating the Baseline ML Model (تشغيل نموذج الفصل السابق للمقارنة)
+To inspect and compare against the earlier prerequisite semester's baseline Tkinter desktop model:
+- Simply double-click:
+  ```cmd
+  run_old_project.bat
+  ```
+- Or run via terminal:
+  ```bash
+  cd Old_Project_Before_Agents
+  python diabetes_predict.py
+  ```
+
+---
+
+### 4. Configuration
 Copy the environment template to create your local `.env` file:
 
 ```bash
@@ -75,103 +158,56 @@ The model runtime is governed by two environment variables inside `.env`:
 
 ---
 
-### 5. Run
-Launch the interactive bilingual clinical dashboard with a single command:
-
-```bash
-# Recommended command:
-python -m streamlit run app.py
-```
-*Or alternatively via the CLI orchestrator:*
-```bash
-python run_system.py --ui
-```
-
-**What the marker should see:**  
-The command opens an interactive web application in your default browser at `http://localhost:8501`. The screen displays a modern clinical workstation with patient biomarker controls in the sidebar (Glucose, Blood Pressure, BMI, Age, Insulin, Pregnancies with biological gender locking).  
-Upon clicking **"تشغيل منظومة الوكلاء للتشخيص السريري / Run Multi-Agent Clinical Diagnosis"**, the live multi-agent visual tracker animates each of the 5 agents sequentially through their quality gates, presenting:
-- Calibrated probability gauge and clinical risk categorization.
-- Dedicated **Medical Criteria Analysis** tab with 5 dynamic topologies (Horizontal Bar, Vertical Column, Pie, Donut, Radar) and session state persistence.
-- ADA 2024/2026 diagnostic rationales and personalized lifestyle/nutrition protocols.
-- **One-Click Official Patient Clinical Word Report (.docx)**: Generated with session-state caching and featuring a dedicated separate page for the Biomarker Impact Table (Table 3), fully formatted and ready for hospital discharge.
+### 5. Running the Application: What Evaluators See
+Once the interactive application launches at `http://localhost:8501`, the clinical workstation provides:
+1. **Interactive Clinical Sidebar:** Patient biomarker input sliders and number fields (Glucose, Blood Pressure, BMI, Age, Insulin, Skin Thickness, Pregnancies with biological gender locking).
+2. **Multi-Agent Execution Pipeline:** Upon clicking **"تشغيل منظومة الوكلاء للتشخيص السريري / Run Multi-Agent Clinical Diagnosis"**, a live execution tracker animates each of the 5 agents sequentially through their respective quality gates.
+3. **Calibrated Probability & Clinical Risk Stratification:** Displays the isotonic-calibrated risk percentage with risk tier classification (Low, Moderate, High, Critical Emergency).
+4. **Dedicated Medical Criteria Analysis Tab:** Features 5 dynamic visual topologies (Horizontal Bar, Vertical Column, Pie, Donut, Radar) with session state persistence.
+5. **ADA Guideline-Grounded Reasoning & Personalized Nutrition:** Explains biomarker impact and personalizes diet, physical activity, and glycemic targets.
+6. **One-Click Official Patient Word Report (.docx):** Fully formatted clinical discharge document with session-state caching and featuring a dedicated separate page for the Biomarker Impact Table (Table 3), ready for direct hospital discharge.
 
 ---
 
-### 6. Test
-Execute the automated test suite with a single command:
+### 6. Automated Verification Test Suites
+Run the offline automated test suite directly via `pytest`:
 
 ```bash
-python -m pytest -v
-```
-*Or via the CLI orchestrator:*
-```bash
-python run_system.py --test
+python -m pytest
 ```
 
-> **IMPORTANT CLINICAL & MARKER NOTICE:**  
-> **This test suite runs completely offline with NO API key and NO network access required.**  
-> It evaluates 10 unit and stress test cases including Pydantic schema validation, biological zero sanitization, semantic consistency, extreme morbid obesity, and emergency crisis interception.  
-> **Expected output:** `10 passed in ~4s` with an exit code of `0`.
+**Verified Test Results (10/10 PASSING in 4.24s):**
+```text
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
+rootdir: D:\111\diabetes_predict\New_Project_After_Agents
+configfile: pytest.ini
+collected 10 items
 
----
+tests/test_system.py::test_data_preprocessor_imputation_and_scaling PASSED [ 10%]
+tests/test_system.py::test_calibrated_model_probability_bounds PASSED       [ 20%]
+tests/test_system.py::test_pydantic_schema_strict_contracts PASSED           [ 30%]
+tests/test_system.py::test_deterministic_clinical_reasoning_logic PASSED    [ 40%]
+tests/test_system.py::test_emergency_crisis_interception_gate PASSED        [ 50%]
+tests/test_system.py::test_multi_agent_orchestrator_pipeline PASSED         [ 60%]
+tests/test_system.py::test_physician_approval_gate_enforcement PASSED       [ 70%]
+tests/test_system.py::test_patient_report_generator_docx PASSED             [ 80%]
+tests/test_system.py::test_criteria_chart_topology_generation PASSED        [ 90%]
+tests/test_system.py::test_offline_zero_network_execution PASSED            [100%]
 
-### 7. A Worked Example
-To verify a correct run from a broken one, input the following concrete patient profile:
-
-**Input Biomarkers:**
-- `Patient ID`: `PT-2026-042`
-- `Age`: 52 years | `Sex`: Female | `Pregnancies`: 3
-- `Glucose`: 168.0 mg/dL *(Elevated fasting glucose)*
-- `Blood Pressure`: 85.0 mmHg
-- `BMI`: 33.6 kg/m² *(Class I Obesity)*
-- `Insulin`: 180.0 μIU/mL
-- `Skin Thickness`: 32.0 mm
-- `Diabetes Pedigree Function`: 0.65
-
-**Expected System Output:**
-```json
-{
-  "triage": {
-    "priority_tier": "High_Risk",
-    "biological_anomalies_detected": 0,
-    "gender_validation": "Female (Pregnancies Active)"
-  },
-  "prediction": {
-    "prediction_label": 1,
-    "diabetes_probability": 78.4,
-    "confidence_interval": [72.1, 84.7],
-    "calibration_method": "Isotonic Regression",
-    "top_contributing_biomarkers": ["Glucose (32.5%)", "BMI (24.5%)", "Age (14.8%)"]
-  },
-  "clinical_reasoning": {
-    "diagnosis_code": "E11.9 (Type 2 Diabetes High Probability)",
-    "ada_criteria_matched": "Fasting Plasma Glucose >= 126 mg/dL + Obesity Co-factor",
-    "summary": "Patient demonstrates marked glycemic dysregulation with significant risk of microvascular complications. Immediate clinical confirmation via HbA1c required."
-  },
-  "lifestyle_plan": {
-    "dietary_protocol": "Low-Glycemic Mediterranean Medical Nutrition Therapy (MNT)",
-    "physical_activity": "150 mins/week moderate aerobic walking + 2 days resistance",
-    "followup_interval": "3 Months (Comprehensive Glycemic & Renal Panel)"
-  },
-  "gatekeeper": {
-    "overall_status": "CERTIFIED",
-    "emergency_alert_triggered": false,
-    "human_review_required": false,
-    "legal_disclaimer_appended": true
-  }
-}
+============================= 10 passed in 4.24s ==============================
 ```
 
 ---
 
-### 8. Reproduce the Evaluation
-Run the comprehensive evaluation harness across all four architectural phases:
+### 7. End-to-End System Benchmark & Report Compilation
+Execute the master CLI orchestrator to run all project phases sequentially:
 
 ```bash
 python run_system.py --phase all
 ```
 
-**Expected terminal output numbers (must match the submitted report):**
+**Expected terminal output numbers (matching submitted academic report):**
 ```text
 ======================================================================
  PHASE 1: DATA MODELING & QUALITY GATES VERIFICATION
@@ -206,79 +242,75 @@ python run_system.py --phase all
 
 ---
 
-### 9. The Approval Gate (Consequential Action)
-- **Where it lives:** `Phase_2_Multi_Agent_Architecture/gatekeeper_agent.py` and `Phase_3_Interactive_UI_and_System_Integration/app.py`.
+### 8. The Approval Gate (Consequential Action)
+- **Where it lives:** `New_Project_After_Agents/Phase_2_Multi_Agent_Architecture/gatekeeper_agent.py` and `New_Project_After_Agents/Phase_3_Interactive_UI_and_System_Integration/app.py`.
 - **How to trigger it:** In the UI or via CLI, enter a patient with **Blood Glucose $\ge 250\text{ mg/dL}$** (e.g., Glucose = 280 mg/dL).
 - **What the human reviewer sees:**  
   The system triggers **Gate 2.3 (Emergency Triage Interception)**. It immediately halts standard outpatient advice, generates a prominent **CRITICAL RED EMERGENCY ALERT**, flags risks of Diabetic Ketoacidosis (DKA) or Hyperosmolar Hyperglycemic State (HHS), locks lifestyle and dietary recommendations to avoid delaying medical treatment, and presents an interactive **Physician Review and Approval Gate**. A human clinical reviewer must acknowledge the critical values and verify hospital referral before any diagnostic summary can be exported.
 
 ---
 
-### 10. Repository Map
+### 9. Repository Architecture & Directory Map
 ```text
-.
-├── app.py                                            # Main Streamlit web application entrypoint
+COSC726-Agentic-AI-Diabetes-CDSS/
+│
+├── New_Project_After_Agents/                         # Proposed Multi-Agent Clinical AI Architecture (COSC726)
+│   ├── Phase_1_Data_Modeling_and_Validation/        # Biological imputation, ensemble training, isotonic calibration
+│   │   ├── calibrated_diabetes_model.pkl            # Calibrated predictive classifier
+│   │   ├── clinical_preprocessor.pkl                # Median imputation and standard scaler pipeline
+│   │   ├── data_preprocessor.py                     # Pipeline definitions
+│   │   └── train_calibrated_models.py               # Model training script
+│   │
+│   ├── Phase_2_Multi_Agent_Architecture/            # Autonomous 5-Agent Collaborative Clinical Engine
+│   │   ├── schemas.py                               # Strict Pydantic v2 data contracts
+│   │   ├── triage_agent.py                          # Agent 1: Physiological sanity & crisis detection
+│   │   ├── diagnostic_agent.py                      # Agent 2: Calibrated predictive inference & criteria impact
+│   │   ├── reasoning_agent.py                       # Agent 3: ADA 2024/2026 clinical guideline reasoning
+│   │   ├── lifestyle_agent.py                       # Agent 4: Medical nutrition therapy & activity plans
+│   │   ├── gatekeeper_agent.py                      # Agent 5: Emergency interception & approval governance
+│   │   ├── agent_orchestrator.py                    # Sequential MDT clinical orchestrator
+│   │   └── llm_engine.py                            # Multi-provider LLM gateway (offline deterministic default)
+│   │
+│   ├── Phase_3_Interactive_UI_and_System_Integration/ # Streamlit Clinical Workstation & Report Engine
+│   │   ├── app.py                                   # Streamlit dashboard implementation
+│   │   └── patient_report_generator.py              # Word report generator with isolated Table 3 page
+│   │
+│   ├── Phase_4_Verification_Testing_and_Benchmarking/ # Quality gate suites & latency benchmarking
+│   │   ├── benchmark_performance.py                 # Latency and throughput benchmark harness
+│   │   └── test_clinical_gates.py                   # Automated gate verification
+│   │
+│   ├── tests/                                       # Master pytest discovery directory
+│   │   └── test_system.py                           # 10 automated end-to-end unit and integration tests
+│   │
+│   ├── app.py                                       # Subdirectory launcher
+│   ├── run_app.bat & run_web_app.bat                # 1-Click auto-installing batch launchers
+│   ├── requirements.txt                             # Subdirectory dependencies
+│   ├── pytest.ini                                   # Test framework configuration
+│   └── diabetes_data.csv                            # Clinical dataset
+│
+├── Old_Project_Before_Agents/                        # Baseline Machine Learning Project (Prerequisite Semester)
+│   ├── diabetes_predict.py                          # Monolithic Tkinter desktop prediction interface
+│   ├── diabetes_model.pkl                           # Uncalibrated baseline Random Forest classifier
+│   ├── diabetes_data.csv                            # Original Pima clinical dataset
+│   ├── run_desktop_app.bat                          # 1-click legacy launcher
+│   └── README.md                                    # Previous semester documentation
+│
+├── app.py                                            # Root Streamlit forwarder (for root execution & Cloud deployment)
 ├── run_system.py                                     # Master CLI controller (orchestrates all phases, tests, reports)
-├── requirements.txt                                  # Pinned dependencies for reproducible clean environment installs
-├── .env.example                                      # Environment variable template with provider configurations
-├── .gitignore                                         # Standard exclusion rules for caches, venv, and secrets
-├── pytest.ini                                        # Automated pytest configuration for seamless test discovery
-├── LICENSE                                           # MIT License and third-party data acknowledgments
-├── calibrated_diabetes_model.pkl                     # Isotonic calibrated clinical ML classifier
-├── clinical_preprocessor.pkl                         # Biological zero imputation and scaler pipeline
-├── diabetes_data.csv                                 # Pima Indians diabetes clinical dataset
-│
-├── Project_Guide_Arabic.docx                         # Comprehensive Operations & User Manual (Arabic Word)
-├── Project_Guide_English.docx                        # Comprehensive Operations & User Manual (English Word)
-├── Project_Guide.docx                                # Operations Manual (Bilingual Master Word Document)
-├── PROJECT_GUIDE_AR.md                               # Markdown Operations Guide in Arabic
-├── READ.md                                           # Project Quickstart & Documentation Summary
-│
-├── Phase_1_Data_Modeling_and_Validation/             # Phase 1: Imputation, ensemble modeling, calibration & evaluation
-├── Phase_2_Multi_Agent_Architecture/                 # Phase 2: 5 autonomous clinical agents, Pydantic contracts & LLM engine
-├── Phase_3_Interactive_UI_and_System_Integration/    # Phase 3: Streamlit dashboard, shape switcher & Word report generator
-├── Phase_4_Verification_Testing_and_Benchmarking/    # Phase 4: 10 offline automated tests & latency benchmarking harness
-│
-├── pdf/                                              # Official deliverables: Academic health reports, ADA standards, user guides & presentations
-├── Project_Proposal/                                 # Formal Master's Research Proposals (Arabic and English)
-└── ui_screenshots/                                   # High-resolution clinical interface captures for documentation
+├── run_new_project.bat                               # 1-Click smart auto-installing launcher for new project
+├── run_old_project.bat                               # 1-Click launcher for baseline ML project
+├── requirements.txt                                  # Master dependencies file
+├── Project_Guide.docx                                # Bilingual Operations & Technical Manual (Word)
+├── README.md                                         # Comprehensive repository documentation
+├── .env.example                                      # Provider template configuration
+├── .gitignore                                        # Production git exclusion rules
+└── LICENSE                                           # MIT License
 ```
 
 ---
 
-### 11. Limitations
+### 10. Limitations & Clinical Governance Boundaries
 1. **Scope of Diagnosis:** The system is an assistive clinical decision support tool designed for adult type 2 diabetes risk stratification; it does not replace definitive clinical blood tests (such as official laboratory HbA1c or venous glucose tolerance tests) performed by medical practitioners.
 2. **Pediatric and Type 1 Boundaries:** It is not validated for pediatric patients (< 18 years) or autoimmune Type 1 diabetes classification involving autoantibody panels (GAD65, IA-2).
 3. **Data Distribution Bias:** The baseline predictive model is trained on the standard Pima clinical cohort; while calibrated via isotonic regression, validation across multi-center ethnic cohorts is recommended prior to clinical deployment.
 4. **What Would Break It:** Injecting `NaN` values directly through internal Python calls bypassing Pydantic validation, or running with a Python version `< 3.10` lacking modern union type annotations (`|`).
-
----
-
-### 12. GitHub Repository Setup & Deployment Guide
-Follow these exact instructions to clone, verify, and publish this repository cleanly:
-
-1. **Create Repository on GitHub:**
-   - **Repository Name:** `COSC726-Agentic-AI-Diabetes-CDSS`
-   - **Visibility:** `Public` *(Recommended by module brief for assessor verification)*
-   - **Initialize with README / .gitignore / License:** Leave all **UNCHECKED / OFF** *(our repository already provides pre-configured, audited files)*.
-
-2. **Publish from PowerShell / Terminal:**
-   ```bash
-   # Navigate to the project directory
-   cd "D:\111\diabetes_predict\New_Project_After_Agents"
-
-   # Initialize and stage clean files
-   git init
-   git add .
-   git commit -m "Initial commit: COSC726 Agentic AI Multi-Agent CDSS for Diabetes"
-
-   # Point to your GitHub repository and push
-   git branch -M main
-   git remote add origin https://github.com/YourUsername/COSC726-Agentic-AI-Diabetes-CDSS.git
-   git push -u origin main
-   ```
-
-3. **Governance Check Before Pushing:**
-   - Verify that your live `.env` file containing real API keys is **NOT** committed (protected by `.gitignore`).
-   - Verify that `.pytest_cache/` and `__pycache__/` are **NOT** committed.
-   - Run `python -m pytest` to confirm all 10 tests pass with exit code `0`.
